@@ -1,7 +1,3 @@
-# Modelagem e Estatísticas - Troféu Alexandre Pussieldi (Pré/Mirim) #
-
-# Modelagem de Dados com MERMAID #
-
 
 erDiagram
     CLUBE ||--o{ INSCRICAO : realiza
