@@ -1,4 +1,5 @@
 erDiagram
+    
     CLUBE ||--o{ INSCRICAO : realiza
     ATLETA ||--o{ INSCRICAO : possui
     COMPETICAO ||--o{ INSCRICAO : recebe
@@ -76,3 +77,4 @@ erDiagram
         string status_resultado
     }
 
+#Em caso de problemas, para melhor visualização, segue o link da tabela no MERMAID: https://mermaid.ai/app/projects/86fee403-71d5-43a3-a98f-e5cfba6824c8/diagrams/dedb4c42-407c-47ef-9e95-f5b026f40597/share/invite/eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJkb2N1bWVudElEIjoiZGVkYjRjNDItNDA3Yy00N2VmLTllOTUtZjViMDI2ZjQwNTk3IiwiYWNjZXNzIjoiVmlldyIsInB1cnBvc2UiOiJzaGFyZS1pbnZpdGUiLCJpYXQiOjE3OTMwNjUzMzEsImV4cCI6MTc5NTY1NzMzMX0.H_jC6ZUeL52BOdtMJ2gA4b0HTE0M3UwAPdstrA6dgec?entryPoint=share-modal
