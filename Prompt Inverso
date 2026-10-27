@@ -1,0 +1,116 @@
+# Procedure do quadro de medalhas
+
+DELIMITER //
+
+CREATE PROCEDURE sp_quadro_de_medalhas()
+BEGIN
+
+    SELECT
+        c.id_clube,
+        c.nome_clube,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 1 THEN 1
+                ELSE 0
+            END
+        ) AS ouro,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 2 THEN 1
+                ELSE 0
+            END
+        ) AS prata,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 3 THEN 1
+                ELSE 0
+            END
+        ) AS bronze,
+
+        SUM(
+            CASE
+                WHEN r.colocacao IN (1,2,3) THEN 1
+                ELSE 0
+            END
+        ) AS total_medalhas,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 4 THEN 1
+                ELSE 0
+            END
+        ) AS quarto,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 5 THEN 1
+                ELSE 0
+            END
+        ) AS quinto,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 6 THEN 1
+                ELSE 0
+            END
+        ) AS sexto,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 7 THEN 1
+                ELSE 0
+            END
+        ) AS setimo,
+
+        SUM(
+            CASE
+                WHEN r.colocacao = 8 THEN 1
+                ELSE 0
+            END
+        ) AS oitavo,
+
+        COUNT(r.id_resultado) AS total_resultados
+
+    FROM CLUBE c
+
+    LEFT JOIN RESULTADO r
+        ON r.id_clube = c.id_clube
+
+    GROUP BY
+        c.id_clube,
+        c.nome_clube
+
+    ORDER BY
+        ouro DESC,
+        prata DESC,
+        bronze DESC;
+
+END //
+
+# Resultados
+
+CREATE TABLE RESULTADO (
+    id_resultado INT AUTO_INCREMENT PRIMARY KEY,
+
+    id_inscricao INT NULL,
+    id_clube INT NOT NULL,
+
+    colocacao INT NOT NULL,
+    pontos INT NOT NULL DEFAULT 0,
+
+    FOREIGN KEY (id_inscricao)
+        REFERENCES INSCRICAO(id_inscricao),
+
+    FOREIGN KEY (id_clube)
+        REFERENCES CLUBE(id_clube),
+
+    CHECK (colocacao BETWEEN 1 AND 8),
+    CHECK (pontos >= 0)
+);
+
+
+
+DELIMITER ;
