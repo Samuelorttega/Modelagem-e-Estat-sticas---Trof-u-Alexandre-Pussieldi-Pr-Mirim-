@@ -114,3 +114,6 @@ CREATE TABLE RESULTADO (
 
 
 DELIMITER ;
+
+# link para a conversa com o ChatGPT a respeito da resolução da tarefa: https://chatgpt.com/share/6adfffff-fd60-83e9-8d90-14037abe6103
+# OBS: perdemos a primeira conversa sobre o desenvolvimento da questão 1 porque não havíamos logado em uma conta. :(
