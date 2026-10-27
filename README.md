@@ -1,4 +1,3 @@
-
 erDiagram
     CLUBE ||--o{ INSCRICAO : realiza
     ATLETA ||--o{ INSCRICAO : possui
